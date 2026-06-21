@@ -4,6 +4,7 @@
 [build.environment]
   NEXT_DISABLE_TURBOPACK = "1"
   NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
 [[notifications]]
   form_name = "quote"
   [notifications.webhook]
