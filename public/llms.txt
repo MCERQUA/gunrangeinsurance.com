@@ -1,0 +1,38 @@
+# GunRangeInsurance.com — LLMs.txt
+
+## Site
+GunRangeInsurance.com is operated by Contractors Choice Agency, a specialty insurance agency focused exclusively on gun ranges, shooting facilities, and firearms professionals.
+
+## Purpose
+This site provides information about specialized insurance coverage for:
+- Indoor and outdoor shooting ranges
+- Firearms instructors and trainers
+- Range Safety Officers (RSOs)
+- FFL dealers and retail gun stores
+- Shooting clubs and associations
+- Lead abatement and environmental liability
+
+## Contact
+- Phone: (800) 555-0100
+- Email: info@contractorschoiceagency.com
+- Quote: https://gunrangeinsurance.com/quote
+
+## Coverage Specialties
+- Gun range general liability insurance
+- Lead contamination and environmental liability
+- Firearms instructor professional liability
+- RSO personal liability coverage
+- FFL dealer and retail gun store insurance
+- Shooting club and association coverage
+
+## Key Pages
+- /services/gun-range-liability-insurance
+- /services/firearms-instructor-insurance
+- /services/range-safety-officer-insurance
+- /services/indoor-shooting-range-insurance
+- /services/outdoor-shooting-range-insurance
+- /services/retail-gun-store-ffl-insurance
+- /services/shooting-club-insurance
+- /services/lead-abatement-environmental-insurance
+- /blog
+- /quote
