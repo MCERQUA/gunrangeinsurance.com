@@ -9,13 +9,12 @@ const withMDX = createMDX({
 })
 
 const nextConfig: NextConfig = {
-  eslint: { ignoreDuringBuilds: true },
-  typescript: { ignoreBuildErrors: true },
   output: 'export',
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
     unoptimized: true,
   },
+  typescript: { ignoreBuildErrors: true },
 }
 
 export default withMDX(nextConfig)
