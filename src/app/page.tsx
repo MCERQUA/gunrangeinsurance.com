@@ -150,7 +150,7 @@ const jsonLd = {
       '@id': 'https://gunrangeinsurance.com/#organization',
       name: 'Contractors Choice Agency — GunRangeInsurance.com',
       url: 'https://gunrangeinsurance.com',
-      telephone: '(844) 967-5247',
+      telephone: '+1-844-967-5247',
       email: 'info@contractorschoiceagency.com',
       areaServed: 'US',
       knowsAbout: ['shooting range insurance', 'gun range liability', 'firearms instructor insurance', 'FFL dealer insurance'],
@@ -161,7 +161,7 @@ const jsonLd = {
       name: 'Contractors Choice Agency',
       description: 'Specialized insurance for shooting ranges, gun ranges, firearms instructors, and FFL dealers. Licensed in all 50 states.',
       url: 'https://gunrangeinsurance.com',
-      telephone: '(844) 967-5247',
+      telephone: '+1-844-967-5247',
     },
     {
       '@type': 'FAQPage',
