@@ -77,9 +77,9 @@ export default function Nav() {
             <Link href="/contact" className="font-heading font-semibold text-primary hover:text-secondary transition-colors">
               Contact
             </Link>
-            <a href="tel:8005550100" className="flex items-center gap-2 text-primary font-heading font-semibold">
+            <a href="tel:+18449675247" className="flex items-center gap-2 text-primary font-heading font-semibold">
               <Phone className="w-4 h-4 text-secondary" />
-              (800) 555-0100
+              (844) 967-5247
             </a>
             <Link href="/quote" className="btn-primary text-sm px-5 py-2.5">
               Get a Quote
@@ -115,7 +115,7 @@ export default function Nav() {
             <Link href="/blog" className="block py-2 font-semibold text-primary" onClick={() => setIsOpen(false)}>Resources</Link>
             <Link href="/about" className="block py-2 font-semibold text-primary" onClick={() => setIsOpen(false)}>About</Link>
             <Link href="/contact" className="block py-2 font-semibold text-primary" onClick={() => setIsOpen(false)}>Contact</Link>
-            <a href="tel:8005550100" className="block py-2 font-semibold text-secondary">(800) 555-0100</a>
+            <a href="tel:+18449675247" className="block py-2 font-semibold text-secondary">(844) 967-5247</a>
             <Link href="/quote" className="btn-primary block text-center" onClick={() => setIsOpen(false)}>Get a Quote</Link>
           </div>
         </div>

@@ -28,8 +28,8 @@ export default function GunRangeLiabilityPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/quote" className="btn-secondary px-8 py-4 text-lg">Get a Free Quote</Link>
-              <a href="tel:8005550100" className="flex items-center gap-2 border-2 border-white text-white font-heading font-semibold px-8 py-4 rounded hover:bg-white/10 transition-colors text-lg">
-                <Phone className="w-5 h-5" /> (800) 555-0100
+              <a href="tel:+18449675247" className="flex items-center gap-2 border-2 border-white text-white font-heading font-semibold px-8 py-4 rounded hover:bg-white/10 transition-colors text-lg">
+                <Phone className="w-5 h-5" /> (844) 967-5247
               </a>
             </div>
           </div>
@@ -166,8 +166,8 @@ export default function GunRangeLiabilityPage() {
                 <Link href="/quote" className="bg-white text-secondary font-heading font-bold px-6 py-3 rounded block text-center hover:bg-gray-100 transition-colors">
                   Request Quote
                 </Link>
-                <a href="tel:8005550100" className="mt-3 block text-center text-white text-sm font-semibold hover:underline">
-                  Or call (800) 555-0100
+                <a href="tel:+18449675247" className="mt-3 block text-center text-white text-sm font-semibold hover:underline">
+                  Or call (844) 967-5247
                 </a>
               </div>
 

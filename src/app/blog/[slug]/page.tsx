@@ -106,8 +106,8 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <Link href="/quote" className="bg-white text-secondary font-heading font-bold px-4 py-2.5 rounded block text-center text-sm hover:bg-gray-100 transition-colors">
                   Free Quote
                 </Link>
-                <a href="tel:8005550100" className="mt-2 block text-center text-white text-sm hover:underline">
-                  (800) 555-0100
+                <a href="tel:+18449675247" className="mt-2 block text-center text-white text-sm hover:underline">
+                  (844) 967-5247
                 </a>
               </div>
 

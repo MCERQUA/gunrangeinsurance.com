@@ -26,8 +26,8 @@ export default function ShootingClubPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/quote" className="btn-secondary px-8 py-4 text-lg">Get a Free Quote</Link>
-              <a href="tel:8005550100" className="flex items-center gap-2 border-2 border-white text-white font-heading font-semibold px-8 py-4 rounded hover:bg-white/10 transition-colors">
-                <Phone className="w-5 h-5" /> (800) 555-0100
+              <a href="tel:+18449675247" className="flex items-center gap-2 border-2 border-white text-white font-heading font-semibold px-8 py-4 rounded hover:bg-white/10 transition-colors">
+                <Phone className="w-5 h-5" /> (844) 967-5247
               </a>
             </div>
           </div>

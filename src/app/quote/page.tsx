@@ -59,8 +59,8 @@ export default function QuotePage() {
               <div className="bg-primary rounded-xl p-6 text-white">
                 <h3 className="font-heading font-bold text-white text-lg mb-2">Need Help Now?</h3>
                 <p className="text-gray-300 text-sm mb-4">Speak directly with a specialist about your coverage needs.</p>
-                <a href="tel:8005550100" className="font-heading font-bold text-accent text-xl hover:underline">
-                  (800) 555-0100
+                <a href="tel:+18449675247" className="font-heading font-bold text-accent text-xl hover:underline">
+                  (844) 967-5247
                 </a>
                 <p className="text-gray-400 text-xs mt-1">Mon-Fri 8AM-6PM CT</p>
               </div>

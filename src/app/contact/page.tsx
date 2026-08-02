@@ -33,8 +33,8 @@ export default function ContactPage() {
               <div className="card">
                 <Phone className="w-6 h-6 text-secondary mb-3" />
                 <h3 className="font-heading font-bold text-primary mb-2">Phone</h3>
-                <a href="tel:8005550100" className="text-secondary font-semibold text-lg hover:underline">
-                  (800) 555-0100
+                <a href="tel:+18449675247" className="text-secondary font-semibold text-lg hover:underline">
+                  (844) 967-5247
                 </a>
                 <p className="text-muted text-sm mt-1">Speak directly with a specialist</p>
               </div>

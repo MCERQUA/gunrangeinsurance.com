@@ -150,7 +150,7 @@ const jsonLd = {
       '@id': 'https://gunrangeinsurance.com/#organization',
       name: 'Contractors Choice Agency — GunRangeInsurance.com',
       url: 'https://gunrangeinsurance.com',
-      telephone: '(800) 555-0100',
+      telephone: '(844) 967-5247',
       email: 'info@contractorschoiceagency.com',
       areaServed: 'US',
       knowsAbout: ['shooting range insurance', 'gun range liability', 'firearms instructor insurance', 'FFL dealer insurance'],
@@ -161,7 +161,7 @@ const jsonLd = {
       name: 'Contractors Choice Agency',
       description: 'Specialized insurance for shooting ranges, gun ranges, firearms instructors, and FFL dealers. Licensed in all 50 states.',
       url: 'https://gunrangeinsurance.com',
-      telephone: '(800) 555-0100',
+      telephone: '(844) 967-5247',
     },
     {
       '@type': 'FAQPage',
@@ -207,9 +207,9 @@ export default function HomePage() {
                 <Link href="/quote" className="btn-secondary text-center px-8 py-4 text-lg">
                   Get a Free Quote
                 </Link>
-                <a href="tel:8005550100" className="flex items-center justify-center gap-2 border-2 border-white text-white font-heading font-semibold px-8 py-4 rounded hover:bg-white hover:text-primary transition-colors text-lg">
+                <a href="tel:+18449675247" className="flex items-center justify-center gap-2 border-2 border-white text-white font-heading font-semibold px-8 py-4 rounded hover:bg-white hover:text-primary transition-colors text-lg">
                   <Phone className="w-5 h-5" />
-                  (800) 555-0100
+                  (844) 967-5247
                 </a>
               </div>
               <div className="flex flex-wrap gap-x-6 gap-y-3">
@@ -497,8 +497,8 @@ export default function HomePage() {
           <div className="text-center mt-10">
             <p className="text-muted mb-4">Have more questions? Our specialists are standing by.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:8005550100" className="btn-primary px-8 py-3">
-                Call (800) 555-0100
+              <a href="tel:+18449675247" className="btn-primary px-8 py-3">
+                Call (844) 967-5247
               </a>
               <Link href="/contact" className="btn-outline px-8 py-3">
                 Send a Message
@@ -522,9 +522,9 @@ export default function HomePage() {
             <Link href="/quote" className="bg-white text-secondary font-heading font-bold px-10 py-4 rounded hover:bg-gray-100 transition-colors text-lg">
               Get Your Free Quote
             </Link>
-            <a href="tel:8005550100" className="border-2 border-white text-white font-heading font-semibold px-10 py-4 rounded hover:bg-white/10 transition-colors text-lg flex items-center justify-center gap-2">
+            <a href="tel:+18449675247" className="border-2 border-white text-white font-heading font-semibold px-10 py-4 rounded hover:bg-white/10 transition-colors text-lg flex items-center justify-center gap-2">
               <Phone className="w-5 h-5" />
-              (800) 555-0100
+              (844) 967-5247
             </a>
           </div>
         </div>
