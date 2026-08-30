@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import SmoothScroll from '@/components/SmoothScroll'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://gunrangeinsurance.com'),
   title: {
     default: 'Gun Range Insurance | Shooting Range Liability Coverage | CCA',
     template: '%s | GunRangeInsurance.com',
