@@ -195,6 +195,9 @@ export default function QuoteForm() {
       </div>
 
 
+      <p className="text-xs text-muted text-center">
+        By submitting, you consent to be contacted by Contractors Choice Agency. No obligation.
+      </p>
       <button
         type="submit"
         className="w-full bg-secondary text-white font-heading font-bold py-4 rounded-lg hover:bg-red-800 transition-colors text-lg"
@@ -202,9 +205,6 @@ export default function QuoteForm() {
         Request My Free Quote
       </button>
 
-      <p className="text-xs text-muted text-center">
-        By submitting, you consent to be contacted by Contractors Choice Agency. No obligation.
-      </p>
 </form>
   )
 }
