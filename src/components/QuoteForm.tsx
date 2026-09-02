@@ -152,6 +152,48 @@ export default function QuoteForm() {
           placeholder="Describe your facility, number of lanes, current coverage situation, or any specific needs..."
         />
       </div>
+      {/* complete class field set — forms-required-fields.json */}
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Street address</label>
+        <input type="text" name="street_address" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">City</label>
+        <input type="text" name="city" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">State</label>
+        <input type="text" name="state" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">ZIP code</label>
+        <input type="text" name="zip" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Federal Employer ID Number (FEIN)</label>
+        <input type="text" name="fein" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Year business started</label>
+        <input type="number" name="year_business_started" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Description of business</label>
+        <textarea name="business_description" rows={3} className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"></textarea>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Prior insurance carrier name</label>
+        <input type="text" name="prior_carrier_name" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Prior policy number</label>
+        <input type="text" name="prior_policy_number" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Prior policy expiration date</label>
+        <input type="date" name="prior_policy_expiration" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+
 
       <button
         type="submit"
@@ -163,48 +205,6 @@ export default function QuoteForm() {
       <p className="text-xs text-muted text-center">
         By submitting, you consent to be contacted by Contractors Choice Agency. No obligation.
       </p>
-    
-        {/* complete contractor field set — forms-required-fields.json */}
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Street address</label>
-          <input type="text" name="street_address" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">City</label>
-          <input type="text" name="city" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">State</label>
-          <input type="text" name="state" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">ZIP code</label>
-          <input type="text" name="zip" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Federal Employer ID Number (FEIN)</label>
-          <input type="text" name="fein" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Year business started</label>
-          <input type="number" name="year_business_started" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Description of business</label>
-          <textarea name="business_description" rows={3} className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"></textarea>
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Prior insurance carrier name</label>
-          <input type="text" name="prior_carrier_name" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Prior policy number</label>
-          <input type="text" name="prior_policy_number" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-bold mb-1">Prior policy expiration date</label>
-          <input type="date" name="prior_policy_expiration" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-        </div>
 </form>
   )
 }
