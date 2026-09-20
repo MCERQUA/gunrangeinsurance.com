@@ -6,7 +6,6 @@ import SmoothScroll from '@/components/SmoothScroll'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://gunrangeinsurance.com'),
-  alternates: { canonical: "/" },
   title: {
     default: 'Gun Range Insurance | Shooting Range Liability Coverage | CCA',
     template: '%s | GunRangeInsurance.com',
