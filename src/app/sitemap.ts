@@ -1,12 +1,18 @@
 import { MetadataRoute } from "next";
 
+// output:'export' requires this or `next build` fails collecting /sitemap.xml.
+// MUST be at module scope — `const base` is inside the function in this repo, so
+// anchoring on it puts an `export` inside a function body and webpack fails.
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://gunrangeinsurance.com";
   const now = new Date();
   return [
     { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${base}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${base}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    // NOTE: there is no /services page — only /services/<slug> children.
+    // Listing the bare section index put a 404 in the sitemap.
     { url: `${base}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${base}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${base}/quote`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
