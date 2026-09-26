@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { getAllPosts } from "@/lib/blog";
 
 // output:'export' requires this or `next build` fails collecting /sitemap.xml.
 // MUST be at module scope — `const base` is inside the function in this repo, so
@@ -25,5 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/services/shooting-club-insurance`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/services/lead-abatement-environmental-insurance`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/services/range-safety-officer-insurance`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // blog posts — from the same source as /blog/[slug]'s generateStaticParams, so a post
+    // is listed if and only if it is built. (Was omitted entirely: 5 live posts, 0 listed.)
+    ...getAllPosts().map((post) => ({
+      url: `${base}/blog/${post.slug}`,
+      lastModified: post.date ? new Date(post.date) : now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 }
