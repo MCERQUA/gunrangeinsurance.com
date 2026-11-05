@@ -193,6 +193,22 @@ export default function QuoteForm() {
         <label className="block text-sm font-semibold text-foreground mb-1">Prior policy expiration date</label>
         <input type="date" name="prior_policy_expiration" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Desired effective date</label>
+        <input type="date" name="effective_date" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Desired coverage limits</label>
+        <input type="text" name="limits_requested" placeholder="$1,000,000" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Claims in last 3 years (count)</label>
+        <input type="number" name="losses_3yr_count" placeholder="0" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Claim details (if any)</label>
+        <textarea name="losses_3yr_details" rows={2} className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"></textarea>
+      </div>
 
 
       <p className="text-xs text-muted text-center">
