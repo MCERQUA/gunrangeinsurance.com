@@ -2,11 +2,36 @@
 
 import { useState } from 'react'
 
+const COVERAGE_TYPE_OPTIONS = [
+  { value: 'general-liability', label: 'General Liability' },
+  { value: 'workers-compensation', label: 'Workers Compensation' },
+  { value: 'commercial-property', label: 'Commercial Property' },
+  { value: 'commercial-auto', label: 'Commercial Auto' },
+  { value: 'umbrella-excess-liability', label: 'Umbrella/Excess Liability' },
+  { value: 'professional-liability-eo', label: 'Professional Liability/E&O' },
+  { value: 'other', label: 'Other' },
+]
+
 export default function QuoteForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [coverageTypes, setCoverageTypes] = useState<string[]>([])
+  const [coverageTypesError, setCoverageTypesError] = useState(false)
+
+  const toggleCoverageType = (value: string) => {
+    setCoverageTypes((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    )
+    if (coverageTypesError) setCoverageTypesError(false)
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    if (coverageTypes.length === 0) {
+      setCoverageTypesError(true)
+      return
+    }
+
     const form = e.currentTarget
     const data = new FormData(form)
 
@@ -154,36 +179,36 @@ export default function QuoteForm() {
       </div>
       {/* complete class field set — forms-required-fields.json */}
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">Street address</label>
-        <input type="text" name="street_address" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <label className="block text-sm font-semibold text-foreground mb-1">Street address *</label>
+        <input type="text" name="streetAddress" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">City</label>
-        <input type="text" name="city" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <label className="block text-sm font-semibold text-foreground mb-1">City *</label>
+        <input type="text" name="city" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">State</label>
-        <input type="text" name="state" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <label className="block text-sm font-semibold text-foreground mb-1">State *</label>
+        <input type="text" name="state" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">ZIP code</label>
-        <input type="text" name="zip" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <label className="block text-sm font-semibold text-foreground mb-1">ZIP code *</label>
+        <input type="text" name="zip" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
         <label className="block text-sm font-semibold text-foreground mb-1">Federal Employer ID Number (FEIN)</label>
         <input type="text" name="fein" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">Year business started</label>
-        <input type="number" name="year_business_started" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <label className="block text-sm font-semibold text-foreground mb-1">Year business started *</label>
+        <input type="number" name="yearBusinessStarted" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">Description of business</label>
-        <textarea name="business_description" rows={3} className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"></textarea>
+        <label className="block text-sm font-semibold text-foreground mb-1">Description of business *</label>
+        <textarea name="businessDescription" required rows={3} className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"></textarea>
       </div>
       <div className="mb-4">
         <label className="block text-sm font-semibold text-foreground mb-1">Prior insurance carrier name</label>
-        <input type="text" name="prior_carrier_name" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <input type="text" name="currentCarrier" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
         <label className="block text-sm font-semibold text-foreground mb-1">Prior policy number</label>
@@ -191,25 +216,145 @@ export default function QuoteForm() {
       </div>
       <div className="mb-4">
         <label className="block text-sm font-semibold text-foreground mb-1">Prior policy expiration date</label>
-        <input type="date" name="prior_policy_expiration" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <input type="date" name="currentPolicyExpiration" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">Desired effective date</label>
-        <input type="date" name="effective_date" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <label className="block text-sm font-semibold text-foreground mb-1">Desired effective date *</label>
+        <input type="date" name="desiredEffectiveDate" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
         <label className="block text-sm font-semibold text-foreground mb-1">Desired coverage limits</label>
-        <input type="text" name="limits_requested" placeholder="$1,000,000" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <input type="text" name="requestedLimits" placeholder="$1,000,000" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
         <label className="block text-sm font-semibold text-foreground mb-1">Claims in last 3 years (count)</label>
-        <input type="number" name="losses_3yr_count" placeholder="0" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+        <input type="number" name="lossCount" placeholder="0" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
         <label className="block text-sm font-semibold text-foreground mb-1">Claim details (if any)</label>
-        <textarea name="losses_3yr_details" rows={2} className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"></textarea>
+        <textarea name="lossDescription" rows={2} className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground"></textarea>
       </div>
 
+      {/* ACORD-125/126 gap-fill: business profile fields */}
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Business Entity Type *</label>
+        <select name="entityType" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select entity type...</option>
+          <option value="individual">Individual/Sole Proprietorship</option>
+          <option value="partnership">Partnership</option>
+          <option value="corporation">Corporation</option>
+          <option value="llc">LLC</option>
+          <option value="joint-venture">Joint Venture</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Number of Full-Time Employees *</label>
+        <input type="number" name="fullTimeEmployees" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Number of Part-Time Employees</label>
+        <input type="number" name="partTimeEmployees" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Approximate Annual Payroll</label>
+        <select name="annualPayroll" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select range...</option>
+          <option value="under-50k">Under $50,000</option>
+          <option value="50k-100k">$50,000 - $100,000</option>
+          <option value="100k-250k">$100,000 - $250,000</option>
+          <option value="250k-500k">$250,000 - $500,000</option>
+          <option value="over-500k">Over $500,000</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Are You Currently Insured? *</label>
+        <select name="currentlyInsured" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Any Losses or Claims in the Last 3 Years? *</label>
+        <select name="lossesLast3Years" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Insurance Coverage Needed (select all that apply) *</label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 border border-border rounded-lg p-3">
+          {COVERAGE_TYPE_OPTIONS.map((opt) => (
+            <label key={opt.value} className="flex items-center gap-2 text-sm text-foreground">
+              <input
+                type="checkbox"
+                checked={coverageTypes.includes(opt.value)}
+                onChange={() => toggleCoverageType(opt.value)}
+                className="h-4 w-4"
+              />
+              {opt.label}
+            </label>
+          ))}
+        </div>
+        <input type="hidden" name="coverageTypes" value={coverageTypes.join(',')} />
+        {coverageTypesError && (
+          <p className="text-sm text-red-600 mt-1">Please select at least one coverage type.</p>
+        )}
+      </div>
+
+      {/* ACORD-125/126 gap-fill: gun-range-specific fields */}
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Facility Type *</label>
+        <select name="facilityType" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select facility type...</option>
+          <option value="indoor">Indoor</option>
+          <option value="outdoor">Outdoor</option>
+          <option value="both">Both / Indoor & Outdoor</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Number of Lanes/Bays *</label>
+        <input type="number" name="numberOfLanesBays" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Total Facility Square Footage</label>
+        <input type="number" name="squareFootage" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Membership Structure</label>
+        <select name="membershipModel" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select...</option>
+          <option value="private-member-club">Private Member Club</option>
+          <option value="public-walk-in">Public Walk-In</option>
+          <option value="both">Both Members & Public</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Firearms/Ammunition Retail Sales On-Site (FFL)?</label>
+        <select name="firearmsRetailOnPremises" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Do You Require Signed Liability Waivers From Range Users?</label>
+        <select name="liabilityWaiverUsed" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-foreground mb-1">Is a Range Safety Officer Staffed On-Site?</label>
+        <select name="rangeSafetyOfficerStaffed" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white">
+          <option value="">Select...</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
 
       <p className="text-xs text-muted text-center">
         By submitting, you consent to be contacted by Contractors Choice Agency. No obligation.
