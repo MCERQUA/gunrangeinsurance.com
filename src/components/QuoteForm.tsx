@@ -220,10 +220,6 @@ export default function QuoteForm() {
         <input type="text" name="currentCarrier" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
       <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">Prior policy number</label>
-        <input type="text" name="prior_policy_number" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
-      </div>
-      <div className="mb-4">
         <label className="block text-sm font-semibold text-foreground mb-1">Prior policy expiration date</label>
         <input type="date" name="currentPolicyExpiration" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground" />
       </div>
