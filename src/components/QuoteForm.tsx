@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import AcordGapFields from './AcordGapFields'
 
 const COVERAGE_TYPE_OPTIONS = [
   { value: 'general-liability', label: 'General Liability' },
@@ -16,6 +17,7 @@ export default function QuoteForm() {
   const [submitted, setSubmitted] = useState(false)
   const [coverageTypes, setCoverageTypes] = useState<string[]>([])
   const [coverageTypesError, setCoverageTypesError] = useState(false)
+  const [submitError, setSubmitError] = useState(false)
 
   const toggleCoverageType = (value: string) => {
     setCoverageTypes((prev) =>
@@ -35,11 +37,18 @@ export default function QuoteForm() {
     const form = e.currentTarget
     const data = new FormData(form)
 
-    await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
-    })
+    setSubmitError(false)
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+      })
+      if (!res.ok) throw new Error('submit failed: ' + res.status)
+    } catch {
+      setSubmitError(true)
+      return
+    }
 
     setSubmitted(true)
   }
@@ -356,6 +365,8 @@ export default function QuoteForm() {
         </select>
       </div>
 
+      <AcordGapFields />
+
       <p className="text-xs text-muted text-center">
         By submitting, you consent to be contacted by Contractors Choice Agency. No obligation.
       </p>
@@ -365,6 +376,11 @@ export default function QuoteForm() {
       >
         Request My Free Quote
       </button>
+      {submitError && (
+        <p role="alert" className="text-sm text-red-600 text-center">
+          We could not send your request. Please try again in a moment.
+        </p>
+      )}
 
 </form>
   )
