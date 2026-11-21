@@ -18,7 +18,6 @@ export default function QuoteForm() {
   const [coverageTypes, setCoverageTypes] = useState<string[]>([])
   const [coverageTypesError, setCoverageTypesError] = useState(false)
   const [submitError, setSubmitError] = useState(false)
-  const [signatureError, setSignatureError] = useState(false)
 
   const toggleCoverageType = (value: string) => {
     setCoverageTypes((prev) =>
@@ -37,18 +36,6 @@ export default function QuoteForm() {
 
     const form = e.currentTarget
     const data = new FormData(form)
-
-    // Typed e-signature + date (date must be today, +/- 1 day so a US evening, already tomorrow in UTC, passes).
-    const sigMs = Date.parse(`${String(data.get('signatureDate') ?? '')}T00:00:00Z`)
-    if (
-      !String(data.get('applicantSignature') ?? '').trim() ||
-      Number.isNaN(sigMs) ||
-      Math.abs(sigMs - Date.parse(new Date().toISOString().slice(0, 10) + 'T00:00:00Z')) > 86400000
-    ) {
-      setSignatureError(true)
-      return
-    }
-    setSignatureError(false)
 
     setSubmitError(false)
     try {
@@ -375,21 +362,6 @@ export default function QuoteForm() {
       </div>
 
       <AcordGapFields />
-
-      <p className="text-sm text-muted">Type your full legal name as your electronic signature and enter today&apos;s date.</p>
-      <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">Applicant Signature (type your full legal name) *</label>
-        <input type="text" name="applicantSignature" required maxLength={80} autoComplete="off" className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white" />
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-semibold text-foreground mb-1">Signature Date (today) *</label>
-        <input type="date" name="signatureDate" required className="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary text-foreground bg-white" />
-      </div>
-      {signatureError && (
-        <p role="alert" className="text-sm text-red-600">
-          Please type your full legal name as your signature and enter today&apos;s date.
-        </p>
-      )}
 
       <p className="text-xs text-muted text-center">
         By submitting, you consent to be contacted by Contractors Choice Agency. No obligation.
